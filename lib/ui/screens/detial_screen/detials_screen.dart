@@ -40,8 +40,12 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(
-              color: Colors.white,
-              height: MediaQuery.of(context).size.height * .7,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(),
+                  borderRadius: BorderRadius.circular(20)
+              ),
+              height: MediaQuery.of(context).size.height * .9,
               child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),

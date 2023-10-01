@@ -3,6 +3,7 @@ import 'package:untitled/ui/screens/home/tabs/ahadeth_tab/ahadeth_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/quarn_tab/quarn_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/radio_tab/radio_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/sebha_tab/sebha_tab.dart';
+import 'package:untitled/ui/screens/home/tabs/setting_tab/setting_tab.dart';
 import 'package:untitled/ui/utils/app_assets.dart';
 import 'package:untitled/ui/utils/app_colors.dart';
 
@@ -22,7 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
     QuarnTab(),
     AhadethTab(),
     SebhaTab(),
-    RadioTab()
+    RadioTab(),
+    SettingTab()
   ];
   @override
   Widget build(BuildContext context) {
@@ -63,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
         BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhades)),label: "Ahadeth"),
         BottomNavigationBarItem(icon:ImageIcon(AssetImage(AppAssets.icSebha)) ,label: "Sebha"),
         BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icRadio)),label: "Radio"),
+        BottomNavigationBarItem(icon: Icon(Icons.settings,size: 25,),label: "Setting"),
+
     ],
   ),
       );

@@ -22,6 +22,7 @@ class _SebhaTab extends State
     'لا اله الا الله',
   ];
 
+
   @override
   void initState() {
     super.initState();
@@ -73,7 +74,7 @@ class _SebhaTab extends State
                   SizedBox(height: 16.0),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'عدد التسبيحات',
                         style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),
                       ),
@@ -90,7 +91,7 @@ class _SebhaTab extends State
                         child: Center(
                           child: Text(
                             '$count',
-                            style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400,color: AppColors.white,),
+                            style: const TextStyle(fontSize: 25,fontWeight: FontWeight.w400,color: AppColors.white,),
                           ),
                         ),
                       ),
