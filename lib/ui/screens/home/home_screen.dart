@@ -6,7 +6,7 @@ import 'package:untitled/ui/screens/home/tabs/sebha_tab/sebha_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/setting_tab/setting_tab.dart';
 import 'package:untitled/ui/utils/app_assets.dart';
 import 'package:untitled/ui/utils/app_colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../utils/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: AppColors.transparent,
             centerTitle: true,
             title:
-            Text("Islami",style: AppTheme.appBarTitleTextStyle),
+            Text(AppLocalizations.of(context)!.islami,style: AppTheme.appBarTitleTextStyle),
           ),
        body: tabs[currentTabIndex],
        bottomNavigationBar: buildBottomNavigationBar(),
@@ -61,11 +61,11 @@ class _HomeScreenState extends State<HomeScreen> {
      iconSize: 32,
     selectedItemColor: AppColors.accent,
     items: [
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label: "Quarn"),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhades)),label: "Ahadeth"),
-        BottomNavigationBarItem(icon:ImageIcon(AssetImage(AppAssets.icSebha)) ,label: "Sebha"),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icRadio)),label: "Radio"),
-        BottomNavigationBarItem(icon: Icon(Icons.settings,size: 25,),label: "Setting"),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label:AppLocalizations.of(context)!.quarn),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhades)),label:AppLocalizations.of(context)!.ahadeth),
+        BottomNavigationBarItem(icon:ImageIcon(AssetImage(AppAssets.icSebha)) ,label: AppLocalizations.of(context)!.sebha),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icRadio)),label: AppLocalizations.of(context)!.radio),
+        BottomNavigationBarItem(icon: Icon(Icons.settings,size: 25,),label:AppLocalizations.of(context)!.setting),
 
     ],
   ),

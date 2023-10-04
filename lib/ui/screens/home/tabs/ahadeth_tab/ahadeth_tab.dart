@@ -4,6 +4,7 @@ import 'package:untitled/ui/utils/app_assets.dart';
 import 'package:untitled/ui/utils/app_colors.dart';
 import 'package:untitled/ui/utils/app_theme.dart';
 import 'package:untitled/ui/utils/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../detial_screen/detials_screen.dart';
 
@@ -27,7 +28,7 @@ List<String> ahadethNames = List.generate(50, (index) {
         ),
         Container(
             margin : EdgeInsets.all(6),
-            child: Text("Hadeth Name",style: AppTheme.quarnTitleTextStyle,textAlign: TextAlign.center,)),
+            child: Text(AppLocalizations.of(context)!.ahadeth,style: AppTheme.quarnTitleTextStyle,textAlign: TextAlign.center,)),
         Divider(
           thickness: 3,
           height: 3,
