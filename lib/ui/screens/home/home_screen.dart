@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled/providers/settings_provider.dart';
 import 'package:untitled/ui/screens/home/tabs/ahadeth_tab/ahadeth_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/quarn_tab/quarn_tab.dart';
 import 'package:untitled/ui/screens/home/tabs/radio_tab/radio_tab.dart';
@@ -28,20 +30,21 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of(context);
     return
       Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssets.backGround),fit: BoxFit.fill),
+          image: DecorationImage(image: AssetImage(provider.isDark() ?
+          AppAssets.backGroundDark :
+              AppAssets.backGround)
+              ,fit: BoxFit.fill),
         ),
             child: Scaffold(
               backgroundColor: AppColors.transparent,
           appBar:
           AppBar(
-            elevation: 0,
-            backgroundColor: AppColors.transparent,
-            centerTitle: true,
             title:
-            Text(AppLocalizations.of(context)!.islami,style: AppTheme.appBarTitleTextStyle),
+            Text(AppLocalizations.of(context)!.islami),
           ),
        body: tabs[currentTabIndex],
        bottomNavigationBar: buildBottomNavigationBar(),
@@ -51,15 +54,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget buildBottomNavigationBar() =>
       Theme(
-        data: ThemeData(canvasColor: AppColors.primary),
+        data: Theme.of(context).copyWith(canvasColor: Theme.of(context).primaryColor),
         child: BottomNavigationBar(
           currentIndex: currentTabIndex,
      onTap: (index){
         currentTabIndex = index;
        setState(() {});
      },
-     iconSize: 32,
-    selectedItemColor: AppColors.accent,
     items: [
         BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icQuran)),label:AppLocalizations.of(context)!.quarn),
         BottomNavigationBarItem(icon: ImageIcon(AssetImage(AppAssets.icAhades)),label:AppLocalizations.of(context)!.ahadeth),

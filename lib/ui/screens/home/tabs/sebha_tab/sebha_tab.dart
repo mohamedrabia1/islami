@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:untitled/providers/settings_provider.dart';
+import 'package:untitled/ui/utils/app_assets.dart';
 import 'package:untitled/ui/utils/app_colors.dart';
 
 
@@ -53,6 +56,7 @@ class _SebhaTab extends State
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider provider = Provider.of(context);
     return Stack(
           children: [
             Align(
@@ -64,8 +68,9 @@ class _SebhaTab extends State
                     onTap: incrementCount,
                     child: RotationTransition(
                       turns: _animation,
-                      child: Image.asset(
-                        'assets/images/sebha.png',
+                      child: Image.asset(provider.isDark() ?
+                      AppAssets.sebhaDark :
+                        AppAssets.sebha,
                         width: 200.0,
                         height: 200.0,
                       ),
@@ -84,7 +89,7 @@ class _SebhaTab extends State
                         width: 50,
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
-                          color: AppColors.primary,
+                          color: Theme.of(context).primaryColor,
                             borderRadius: BorderRadius.circular(14)
 
                         ),
@@ -101,7 +106,8 @@ class _SebhaTab extends State
                         width: 92,
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
-                          color: AppColors.primary,
+                          color: provider.isDark() ? AppColors.accentDark
+                            : Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.circular(18)
                       ),
                         child : Center(

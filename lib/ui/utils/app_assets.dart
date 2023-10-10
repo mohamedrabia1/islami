@@ -7,5 +7,7 @@ abstract class AppAssets{
   static const quranTab = "${imagePath}quran_tab_logo.png";
   static const ahadesTab = "${imagePath}ahades_tab_logo.png";
   static const backGround = "${imagePath}background.png";
-  
+  static const backGroundDark = "${imagePath}background_dark.png";
+  static const sebha = "${imagePath}sebha.png";
+  static const sebhaDark = "${imagePath}sebha_dark.png";
 }

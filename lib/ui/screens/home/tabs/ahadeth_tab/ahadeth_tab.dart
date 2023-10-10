@@ -21,19 +21,11 @@ List<String> ahadethNames = List.generate(50, (index) {
         Expanded(
             flex: 3,
             child: Image.asset(AppAssets.ahadesTab)),
-        Divider(
-          thickness: 3,
-          height: 3,
-          color: AppColors.primary,
-        ),
+        Divider(),
         Container(
             margin : EdgeInsets.all(6),
-            child: Text(AppLocalizations.of(context)!.ahadeth,style: AppTheme.quarnTitleTextStyle,textAlign: TextAlign.center,)),
-        Divider(
-          thickness: 3,
-          height: 3,
-          color: AppColors.primary,
-        ),
+            child: Text(AppLocalizations.of(context)!.ahadeth,style: Theme.of(context).textTheme.displayMedium,textAlign: TextAlign.center,)),
+        Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -43,7 +35,7 @@ List<String> ahadethNames = List.generate(50, (index) {
                 Navigator.pushNamed(context, DetailsScreen.routeName, arguments: DetailsScreenArgs(suraOrHadethName: ahadethNames[index], fileName: "h${index+1}.txt", isQuarn: false));
 
               },
-                  child:Text(ahadethNames[index],textAlign: TextAlign.center,style: AppTheme.quarnTitleTextStyle.copyWith(fontWeight: FontWeight.normal),)
+                  child:Text(ahadethNames[index],textAlign: TextAlign.center,style: Theme.of(context).textTheme.displayMedium)
               );
             },
           ),

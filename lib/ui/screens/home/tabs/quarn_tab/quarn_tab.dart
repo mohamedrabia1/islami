@@ -18,19 +18,11 @@ class QuarnTab extends StatelessWidget {
         Expanded(
           flex: 3,
             child: Image.asset(AppAssets.quranTab)),
-        Divider(
-          thickness: 3,
-        height: 3,
-          color: AppColors.primary,
-        ),
+        Divider(),
         Container(
           margin:  EdgeInsets.all(6),
-            child: Text(AppLocalizations.of(context)!.quarn,style: AppTheme.quarnTitleTextStyle,textAlign: TextAlign.center,)),
-        Divider(
-          thickness: 3,
-          height: 3,
-          color: AppColors.primary,
-        ),
+            child: Text(AppLocalizations.of(context)!.quarn,style: Theme.of(context).textTheme.displayMedium,textAlign: TextAlign.center,)),
+        Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -40,7 +32,7 @@ class QuarnTab extends StatelessWidget {
                 Navigator.pushNamed(context, DetailsScreen.routeName, arguments: DetailsScreenArgs(suraOrHadethName: "سورة ${Constants.suraNames[index]}", fileName: "${index+1}.txt", isQuarn: true));
 
               },
-                  child:Text(Constants.suraNames[index],textAlign: TextAlign.center,style: AppTheme.quarnTitleTextStyle.copyWith(fontWeight: FontWeight.normal),)
+                  child:Text(Constants.suraNames[index],textAlign: TextAlign.center,style:Theme.of(context).textTheme.displayMedium)
               );
             },
           ),

@@ -11,30 +11,37 @@ class SettingTab extends StatefulWidget {
 }
 
 class _SettingTabState extends State<SettingTab> {
- bool arSwitch = false;
- bool dartModeSwitch = false;
- late SettingsProvider provider;
-
+  late SettingsProvider provider;
   @override
   Widget build(BuildContext context) {
     provider = Provider.of(context);
+    bool dartModeSwitch = provider.isDark();
+    bool arSwitch = provider.isArab();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(AppLocalizations.of(context)!.setting, style: AppTheme.settingTabTitle),
+          Text(AppLocalizations.of(context)!.setting, style: Theme.of(context).textTheme.bodyMedium),
           buildSettingRow("العربية", arSwitch, (newValue) {
             arSwitch = newValue;
             if(arSwitch){
               provider.setCurrentLocale("ar");
+
             }else{
               provider.setCurrentLocale("en");
             }
-          }),
+
+          }
+          ),
           buildSettingRow(AppLocalizations.of(context)!.darkMode, dartModeSwitch, (newValue) {
             dartModeSwitch = newValue;
-            setState(() {});
+            if(dartModeSwitch){
+              provider.setCurrentMode(ThemeMode.dark);
+            }else{
+              provider.setCurrentMode(ThemeMode.light);
+            }
           })
         ],
       ),
@@ -45,9 +52,9 @@ class _SettingTabState extends State<SettingTab> {
     return Row(
       children: [
         SizedBox(width: 16,),
-        Text(title, style: AppTheme.settingtext),
+        Text(title, style:Theme.of(context).textTheme.bodySmall),
         Spacer(),
-        Switch(value: switchValue, onChanged: onChange, activeColor: AppColors.primary,)
+        Switch(value: switchValue, onChanged: onChange, activeColor: AppColors.primary,),
       ],
     );
   }
