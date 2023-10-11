@@ -7,6 +7,7 @@ import 'package:untitled/ui/screens/detial_screen/detials_screen.dart';
 import 'package:untitled/ui/screens/home/home_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:untitled/ui/screens/home/splash_screen/splash_screen.dart';
 import 'package:untitled/ui/utils/app_theme.dart';
 
 
@@ -38,10 +39,11 @@ class MyApp extends StatelessWidget {
       supportedLocales: [Locale("en"),Locale("ar")],
       locale: Locale(provider.currentLocale),
       routes: {
+        SplashScreen.routeName: (_) => SplashScreen(),
         HomeScreen.routeName: (_) => HomeScreen(),
         DetailsScreen.routeName: (_) => DetailsScreen()
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
